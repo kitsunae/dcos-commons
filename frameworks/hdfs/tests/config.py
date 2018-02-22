@@ -22,12 +22,12 @@ TEST_CONTENT_SMALL = "This is some test data"
 TEST_CONTENT_LARGE_SOURCE = "http://s3.amazonaws.com/nanopore-human-wgs/chr1.sorted.bam"
 DEFAULT_HDFS_TIMEOUT = 5 * 60
 HDFS_POD_TYPES = {"journal", "name", "data"}
-DOCKER_IMAGE_NAME = "nvaziri/hdfs-client:dev"
+DOCKER_IMAGE_NAME = "nvaziri/hdfs-client:stable"
 KEYTAB = "hdfs.keytab"
 
 
 def get_kerberized_hdfs_client_app():
-    app_def_path = "{current_dir}/../tools/{client_id}".format(
+    app_def_path = "{current_dir}/../tools/docker-client/{client_id}".format(
         current_dir=os.path.dirname(os.path.realpath(__file__)),
         client_id="hdfsclient.json"
     )
@@ -103,7 +103,7 @@ def run_hdfs_command(service_name, command):
     """
     Execute the command using the Docker client
     """
-    full_command = 'docker run -e HDFS_SERVICE_NAME={service_name} {image_name} /bin/bash -c "/configure-hdfs.sh && {cmd}"'.format(
+    full_command = 'docker run -e HDFS_SERVICE_NAME={service_name} {image_name} /bin/bash -c "hadoop-*/configure-hdfs.sh && {cmd}"'.format(
         service_name=service_name,
         image_name=DOCKER_IMAGE_NAME,
         cmd=command
