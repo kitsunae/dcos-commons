@@ -396,7 +396,7 @@
     </property>
     <property>
         <name>dfs.datanode.data.dir</name>
-        <value>{{MESOS_SANDBOX}}/data-data</value>
+        <value>/dcos/volume0/data-data,/dcos/volume1/data-data,/dcos/volume2/data-data,/dcos/volume3/data-data,/dcos/volume4/data-data,/dcos/volume5/data-data,/dcos/volume6/data-data,/dcos/volume7/data-data</value>
     </property>
     <property>
         <name>dfs.datanode.balance.bandwidthPerSec</name>

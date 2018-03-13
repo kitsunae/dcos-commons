@@ -438,10 +438,39 @@ pods:
           {{/SECURITY_TRANSPORT_ENCRYPTION_ENABLED}}
           data-ipc:
             port: {{TASKCFG_ALL_DATA_NODE_IPC_PORT}}
-        volume:
-          path: data-data
-          size: {{DATA_DISK}}
-          type: {{DATA_DISK_TYPE}}
+        volumes:
+          volume0:
+            size: 5500000
+            type: MOUNT
+            path: "volume0"
+          volume1:
+            size: 5500000
+            type: MOUNT
+            path: "volume1"
+          volume2:
+            path: "volume2"
+            size: 5500000
+            type: MOUNT
+          volume3:
+            size: 5500000
+            type: MOUNT
+            path: "volume3"
+          volume4:
+            size: 5500000
+            type: MOUNT
+            path: "volume4"
+          volume5:
+            size: 5500000
+            type: MOUNT
+            path: "volume5"
+          volume6:
+            size: 5500000
+            type: MOUNT
+            path: "volume6"
+          volume7:
+            size: 5500000
+            type: MOUNT
+            path: "volume7"
         configs:
           {{#SECURITY_KERBEROS_ENABLED}}
           krb5-conf:
